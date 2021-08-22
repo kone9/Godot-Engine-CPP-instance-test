@@ -28,10 +28,13 @@ Podes compilar directo desde el editor de VScode o con los comandos.
 
 Next compile the godot-cpp bindings:
 
-cd gdtest
-cd godot-cpp
-scons platform=<your platform> generate_bindings=yes
-cd ..
-And compile our module:
 
-scons platform=<your platform>
+
+- cd "en la carpeta"
+- cd godot-cpp
+- scons platform=<your platform> generate_bindings=yes.
+- scons platform=<your platform> generate_bindings=yes.
+- And compile our module:
+- scons platform=<your platform>
+
+
