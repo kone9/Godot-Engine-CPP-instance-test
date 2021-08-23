@@ -38,7 +38,9 @@ private:
 
     //timer para ser usado como delay en el código
     Timer* timerAwait;
+    //espera un tiempo y ejecuta la función que tiene ese nombre
     void Await(float timeAwait, String nameFunction);
+    //funcion para ser ejecutada luego de un tiempo
     void ContinuarFlujo();
 
     void luegoDeInstanciar();

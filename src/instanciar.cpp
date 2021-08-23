@@ -38,15 +38,15 @@ void Instanciar::_on_TimerInstanciar_timeout()
     if(cuboInstanciado == nullptr) return;//Siempre verifico los punteros para no romper el programa
     add_child(cuboInstanciado);
     Await(3,"ContinuarFlujo");
-    Godot::print("espero un segundo");
+    
     // godot::Object::cast_to<godot::RigidBody>(cuboInstanciado)->set_can_sleep(true);
 }
 
 void Instanciar::ContinuarFlujo()
 {
-
+    
+    Godot::print("pasaron 3 segundos");
 }
-
 
 void Instanciar::Await(float timeAwait, String nameFunction) 
 {
@@ -55,8 +55,6 @@ void Instanciar::Await(float timeAwait, String nameFunction)
     timerAwait->set_one_shot(true);
     timerAwait->start();
 }
-
-
 
 void Instanciar::_register_methods() 
 {
