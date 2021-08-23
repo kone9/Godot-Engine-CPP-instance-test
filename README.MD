@@ -1,8 +1,11 @@
 # proyecto usar Godot Engine con C++ usando VScode.
 
+## https://docs.godotengine.org/es/stable/tutorials/plugins/gdnative/gdnative-cpp-example.html
+
 ## Importante en Vscode se configuro un "TASK" que permite compilar desde el mismo editor llendo a TERMINAL/Run Task/ "construir los modulos con scons DEBUG WINDOWS configuracion Ariel" Tambien hay una versión para release
 
 ## Por alguna razón en windows 10 no se genera en la carpeta bin/win64 dentro del proyecto de godot el archivo que permite ejecutar los modulos C++ "libgdexample.dll"
+
 
 Este es el error
 E 0:00:00.925   open_dynamic_library: Can't open dynamic library: D:/PROYECTOS GODOT ENGINE C++/InstanceTestGDNative_CPP/InstanceTestGDNative_CPP/bin/win64/libgdexample.dll, error: Error 126: No se puede encontrar el mￃﾳdulo especificado.
@@ -32,9 +35,8 @@ Next compile the godot-cpp bindings:
 
 - cd "en la carpeta"
 - cd godot-cpp
-- scons platform=<your platform> generate_bindings=yes.
-- scons platform=<your platform> generate_bindings=yes.
-- And compile our module:
+- scons platform=<platform> generate_bindings=yes -j4.
+- agregar más modulos:
 - scons platform=<your platform>
 
 
