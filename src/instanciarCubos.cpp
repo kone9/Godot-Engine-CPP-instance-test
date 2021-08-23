@@ -40,6 +40,7 @@ void InstanciarCubos::_on_TimerInstanciar_timeout()
     Await(3,"ContinuarFlujo");
     
     // godot::Object::cast_to<godot::RigidBody>(cuboInstanciado)->set_can_sleep(true);
+    cast_to<RigidBody>(cuboInstanciado)->set_can_sleep(true);
 }
 
 
