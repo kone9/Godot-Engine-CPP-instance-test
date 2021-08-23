@@ -64,6 +64,7 @@ void InstanciarCubos::_register_methods()
     register_method("Await", &InstanciarCubos::Await);
     register_method("ContinuarFlujo", &InstanciarCubos::ContinuarFlujo);
     // register_property("cuboFisico",InstanciarCubos::cuboFisico,PackedScene);
+    godot::register_property("cuboFisico", &InstanciarCubos::cuboFisico, (Ref<PackedScene>)nullptr);//hace que se vea el packet scene en el editor
 }
 
 
