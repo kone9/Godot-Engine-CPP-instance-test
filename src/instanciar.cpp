@@ -33,8 +33,8 @@ void Instanciar::_on_TimerInstanciar_timeout()
     add_child(cuboInstanciado);
     
     Godot::print("espero un segundo");
-    
-    godot::Object::cast_to<godot::RigidBody>(cuboInstanciado)->set_can_sleep(true);
+
+    // godot::Object::cast_to<godot::RigidBody>(cuboInstanciado)->set_can_sleep(true);
      
 }
 

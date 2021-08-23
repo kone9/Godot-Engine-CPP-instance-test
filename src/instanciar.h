@@ -36,10 +36,14 @@ private:
     godot::Ref<godot::RandomNumberGenerator> _random;//asi hago la referencia a la clase, exactamente igual que en unreal engine cuando necesitas acceder a objetos que no estan en la escena
     godot::Ref<godot::PackedScene> cuboFisico;//asi hago un packetScene tambien uso una referencia a una clase, tengo que identificar cuando se usan referencias a clase y cuando son punteros
 
+    //timer para ser usado como delay en el código
+    Timer* timerAwait;
 
 public:
     //referencia a la señal TIMEOUT
     void _on_TimerInstanciar_timeout();
+
+
     
 };
 
