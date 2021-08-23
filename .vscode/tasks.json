@@ -41,7 +41,7 @@
 		},
 		{
 			"type": "shell",
-			"label": "WINDOWS COMPILAR RAPIDO Los Modulos CPP Godot configuracion Ariel",
+			"label": "COMPILAR RAPIDO DEBUG Los Modulos CPP Godot configuracion Ariel WINDOWS",
 			"options": {
 				"cwd": "${workspaceFolder}/godot-cpp"
 			},
@@ -51,21 +51,6 @@
 			"args": [
 				"platform=windows"
 			]
-		},
-		{
-			"type": "shell",
-			"label": "WINDOWS COMPILAR RAPIDO GCC Los Modulos CPP Godot configuracion Ariel",
-			"options": {
-				"cwd": "${workspaceFolder}/godot-cpp"
-			},
-			"command": "scons",
-			"problemMatcher": "$gcc",
-			"group": "build",
-			"args": [
-				"platform=windows"
-			]
 		}
-
-		
 	]
 }

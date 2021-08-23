@@ -19,6 +19,7 @@ namespace godot {
             InstanciarCubos();
             //metodo destructor
             ~InstanciarCubos();
+            
             void _init(); // our initializer called by Godot
 
             //funcion process se ejectua 60 veces por segundo
