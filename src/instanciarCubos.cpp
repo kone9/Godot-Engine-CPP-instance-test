@@ -1,23 +1,23 @@
 #ifndef __INSTANCIAR_H__
 #define __INSTANCIAR_H__
 
-#include "instanciar.h"
+#include "instanciarCubos.h"
 #include <SceneTree.hpp>
 #include "RigidBody.hpp"
 
 using namespace godot;//sino uso esto no funciona
 
-Instanciar::Instanciar() 
+InstanciarCubos::InstanciarCubos() 
 {
     
 }
 
-Instanciar::~Instanciar() 
+InstanciarCubos::~InstanciarCubos() 
 {
     
 }
 
-void Instanciar::_init() 
+void InstanciarCubos::_init() 
 {
     get_node<godot::Timer>("TimerInstanciar");
     timerAwait = Timer()._new();//creo el timer desde el inicio
@@ -25,12 +25,12 @@ void Instanciar::_init()
     add_child(timerAwait);//agrego el timer await dinamicamente
 }
 
-void Instanciar::_process(float delta) 
+void InstanciarCubos::_process(float delta) 
 {
     
 }
 
-void Instanciar::_on_TimerInstanciar_timeout() 
+void InstanciarCubos::_on_TimerInstanciar_timeout() 
 {
     Godot::print("instancio cubo");
     
@@ -42,13 +42,13 @@ void Instanciar::_on_TimerInstanciar_timeout()
     // godot::Object::cast_to<godot::RigidBody>(cuboInstanciado)->set_can_sleep(true);
 }
 
-void Instanciar::ContinuarFlujo()
+
+void InstanciarCubos::ContinuarFlujo()
 {
-    
     Godot::print("pasaron 3 segundos");
 }
 
-void Instanciar::Await(float timeAwait, String nameFunction) 
+void InstanciarCubos::Await(float timeAwait, String nameFunction) 
 {
     timerAwait->set_wait_time(timeAwait);
     timerAwait->connect(timeAwait, this, nameFunction);
@@ -56,14 +56,13 @@ void Instanciar::Await(float timeAwait, String nameFunction)
     timerAwait->start();
 }
 
-void Instanciar::_register_methods() 
+void InstanciarCubos::_register_methods() 
 {
-    register_method("Instanciar", &Instanciar::_process);
-    register_method("_on_TimerInstanciar_timeout", &Instanciar::_on_TimerInstanciar_timeout);
-    register_method("Await", &Instanciar::Await);
-    register_method("ContinuarFlujo", &Instanciar::ContinuarFlujo);
+    register_method("Instanciar", &InstanciarCubos::_process);
+    register_method("_on_TimerInstanciar_timeout", &InstanciarCubos::_on_TimerInstanciar_timeout);
+    register_method("Await", &InstanciarCubos::Await);
+    register_method("ContinuarFlujo", &InstanciarCubos::ContinuarFlujo);
 }
-
 
 
 #endif // __INSTANCIAR_H__

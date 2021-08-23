@@ -4,5 +4,5 @@
 
 [resource]
 resource_name = "instanciar"
-class_name = "instanciar"
+class_name = "Instanciar"
 library = SubResource( 1 )
