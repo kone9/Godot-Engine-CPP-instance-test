@@ -1,16 +1,16 @@
 #ifndef GDEXAMPLE_H
 #define GDEXAMPLE_H
 
-#include <Godot.hpp>
 #include <Spatial.hpp>
 #include <Timer.hpp>
 #include "RandomNumberGenerator.hpp"
 #include "PackedScene.hpp"
+#include <Godot.hpp>
 
 namespace godot {
     class InstanciarCubos : public Spatial 
     {
-            GODOT_CLASS(InstanciarCubos, Spatial)
+        GODOT_CLASS(InstanciarCubos, Spatial)
 
         public:
             //para registrar metodos como el update importantisimo
@@ -26,8 +26,10 @@ namespace godot {
             void _process(float delta);
 
         private:
-            godot::Ref<godot::RandomNumberGenerator> _random;//asi hago la referencia a la clase, exactamente igual que en unreal engine cuando necesitas acceder a objetos que no estan en la escena
-            godot::Ref<godot::PackedScene> cuboFisico;//asi hago un packetScene tambien uso una referencia a una clase, tengo que identificar cuando se usan referencias a clase y cuando son punteros
+            Ref<RandomNumberGenerator> _random;//asi hago la referencia a la clase, exactamente igual que en unreal engine cuando necesitas acceder a objetos que no estan en la escena
+            // ResourceLoader* reLo = ResourceLoader::get_singleton();
+            // Ref<PackedScene> res = reLo->load(path);
+            Ref<PackedScene> cuboFisico;//asi hago un packetScene tambien uso una referencia a una clase, tengo que identificar cuando se usan referencias a clase y cuando son punteros
 
             //timer para ser usado como delay en el código
             Timer* timerAwait;
@@ -41,7 +43,7 @@ namespace godot {
         private:
             float time_passed;
             //puntero al timer de la escena
-            godot::Timer* NuevoTimer;
+            Timer* NuevoTimer;
 
         public:
             //referencia a la señal TIMEOUT

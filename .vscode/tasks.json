@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"type": "shell",
-			"label": "Contruir Los Modulos De Godot con scons DEBUG WINDOWS configuracion Ariel",
+			"label": "SCONS Contruir Los Modulos De Godot DEBUG WINDOWS configuracion Ariel",
 			"options": {
 				"cwd": "${workspaceFolder}/godot-cpp"
 			},
@@ -16,13 +16,14 @@
 				"bits=64",
 				"target=debug",
 				"tools=yes",
+				"generate_bindings=yes",
 				"-j",
 				"4"
 			]
 		},
 		{
 			"type": "shell",
-			"label": "Contruir Los Modulos De Godot con scons RELEASE WINDOWS configuracion Ariel",
+			"label": "SCONS Contruir Los Modulos De Godot RELEASE WINDOWS configuracion Ariel",
 			"options": {
 				"cwd": "${workspaceFolder}/godot-cpp"
 			},
@@ -35,13 +36,14 @@
 				"bits=64",
 				"target=release",
 				"tools=yes",
+				"generate_bindings=yes",
 				"-j",
 				"4"
 			]
 		},
 		{
 			"type": "shell",
-			"label": "COMPILAR RAPIDO DEBUG Los Modulos CPP Godot configuracion Ariel WINDOWS",
+			"label": "SCONS COMPILAR RAPIDO DEBUG WINDOWS Los Modulos CPP Godot",
 			"options": {
 				"cwd": "${workspaceFolder}/godot-cpp"
 			},

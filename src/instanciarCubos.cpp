@@ -19,9 +19,9 @@ InstanciarCubos::~InstanciarCubos()
 
 void InstanciarCubos::_init() 
 {
-    get_node<godot::Timer>("TimerInstanciar");
+    get_node<Timer>("TimerInstanciar");
     timerAwait = Timer()._new();//creo el timer desde el inicio
-    get_node<godot::Node>("root");
+    get_node<Node>("root");
     add_child(timerAwait);//agrego el timer await dinamicamente
 }
 
@@ -34,13 +34,13 @@ void InstanciarCubos::_on_TimerInstanciar_timeout()
 {
     Godot::print("instancio cubo");
     
-    godot::Node *cuboInstanciado = cuboFisico->instance();
+    Node *cuboInstanciado = cuboFisico->instance();
     if(cuboInstanciado == nullptr) return;//Siempre verifico los punteros para no romper el programa
     add_child(cuboInstanciado);
     Await(3,"ContinuarFlujo");
     
     // godot::Object::cast_to<godot::RigidBody>(cuboInstanciado)->set_can_sleep(true);
-    cast_to<RigidBody>(cuboInstanciado)->set_can_sleep(true);
+    // cast_to<RigidBody>(cuboInstanciado)->set_can_sleep(true);
 }
 
 
@@ -63,6 +63,7 @@ void InstanciarCubos::_register_methods()
     register_method("_on_TimerInstanciar_timeout", &InstanciarCubos::_on_TimerInstanciar_timeout);
     register_method("Await", &InstanciarCubos::Await);
     register_method("ContinuarFlujo", &InstanciarCubos::ContinuarFlujo);
+    // register_property("cuboFisico",InstanciarCubos::cuboFisico,PackedScene);
 }
 
 
