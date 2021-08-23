@@ -5,26 +5,52 @@
 			"type": "shell",
 			"label": "Contruir Los Modulos De Godot con scons DEBUG WINDOWS configuracion Ariel",
 			"options": {
-				"cwd": "${workspaceFolder}/godot-cpp"},//carpeta donde estan los modulos
+				"cwd": "${workspaceFolder}/godot-cpp"
+			},
 			"command": "scons",
-			"problemMatcher": "$msCompile", // Important to catch the status
+			"problemMatcher": "$msCompile",
 			"group": "build",
-			
-			"args": ["platform=windows", "verbose=yes", "bits=64", "target=debug", "tools=yes", "-j", "4"],
-		
+			"args": [
+				"platform=windows",
+				"verbose=yes",
+				"bits=64",
+				"target=debug",
+				"tools=yes",
+				"-j",
+				"4"
+			]
 		},
-
 		{
 			"type": "shell",
 			"label": "Contruir Los Modulos De Godot con scons RELEASE WINDOWS configuracion Ariel",
 			"options": {
-				"cwd": "${workspaceFolder}/godot-cpp"},//carpeta donde estan los modulos
+				"cwd": "${workspaceFolder}/godot-cpp"
+			},
 			"command": "scons",
-			"problemMatcher": "$msCompile", // Important to catch the status
+			"problemMatcher": "$msCompile",
 			"group": "build",
-			
-			"args": ["platform=windows", "verbose=yes", "bits=64", "target=release", "tools=yes", "-j", "4"],
-		
+			"args": [
+				"platform=windows",
+				"verbose=yes",
+				"bits=64",
+				"target=release",
+				"tools=yes",
+				"-j",
+				"4"
+			]
 		},
+		{
+			"type": "shell",
+			"label": "COMPILAR RAPIDO Los Modulos CPP Godot configuracion Ariel",
+			"options": {
+				"cwd": "${workspaceFolder}/godot-cpp"
+			},
+			"command": "scons",
+			"problemMatcher": "$msCompile",
+			"group": "build",
+			"args": [
+				"platform=windows"
+			]
+		}
 	]
 }
