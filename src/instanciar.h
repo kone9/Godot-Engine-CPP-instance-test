@@ -38,6 +38,10 @@ private:
 
     //timer para ser usado como delay en el código
     Timer* timerAwait;
+    void Await(float timeAwait, String nameFunction);
+    void ContinuarFlujo();
+
+    void luegoDeInstanciar();
 
 public:
     //referencia a la señal TIMEOUT
