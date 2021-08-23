@@ -35,8 +35,8 @@ Next compile the godot-cpp bindings:
 
 - cd "en la carpeta"
 - cd godot-cpp
-- scons platform=<platform> generate_bindings=yes -j4.
+- scons platform=windows generate_bindings=yes -j4.
 - agregar más modulos:
-- scons platform=<your platform>
+- scons platform=windows
 
 
