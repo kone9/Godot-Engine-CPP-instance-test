@@ -37,7 +37,9 @@ La escena cubofisico tiene un nodo timer desactiva,
 al activarlo, permite que luego de ese tiempo el rigidbody
 se transforme en staticbody haciendo que el proyecto
 pueda instanciar más de 2000 "C++" escenas manteniendo
-buenos frames por secons "FPS"
+60 frames por secons "FPS".
+
+Por defecto instancia 400 y luego baja los fps
 
 El proyecto pesa 300mb aprox, pero cuando descargas los godot-cpp llega a pesar más de 1 gb.
 Para un entorno de desarrollo con C++ es algo correcto, 
