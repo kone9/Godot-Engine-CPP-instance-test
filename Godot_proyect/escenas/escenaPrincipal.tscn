@@ -22,6 +22,10 @@ font_data = ExtResource( 6 )
 
 [node name="escenaPrincipal" type="Spatial"]
 
+[node name="Camera2" type="Camera" parent="."]
+transform = Transform( 0.599025, 0.345984, -0.722125, 0, 0.901833, 0.432085, 0.800731, -0.25883, 0.54022, -33.2299, 16.1474, 24.548 )
+far = 5000.0
+
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.728969, 0.374833, -0.572804, 0, 0.836764, 0.547564, 0.684547, -0.399157, 0.609975, -58.5523, 57.5072, 67.09 )
 far = 5000.0
