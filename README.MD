@@ -1,6 +1,7 @@
-# proyecto instance test usando Godot Engine con C++ usando y VScode.
+# proyecto instance test usando Godot Engine con C++ y VScode.
 
-![Portada](imagenInsancea.jpg)
+![CppCodegodot](CppCode.jpg)
+![imagenInsancea](imagenInsancea.jpg)
 
 ## Importante en Vscode se configuro un "TASK" que permite compilar desde el mismo editor llendo a TERMINAL/Run Task/ "Godot_Build_GDnative_C++_DLL_DEBUG" Tambien hay una versión para release "Godot_Build_GDnative_C++_DLL_RELEASE"
 
