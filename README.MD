@@ -1,6 +1,6 @@
-# proyecto usar Godot Engine con C++ usando VScode.
+# proyecto instance test usando Godot Engine con C++ usando y VScode.
 
-## https://docs.godotengine.org/es/stable/tutorials/plugins/gdnative/gdnative-cpp-example.html
+![Portada](imagenInsancea.jpg)
 
 ## Importante en Vscode se configuro un "TASK" que permite compilar desde el mismo editor llendo a TERMINAL/Run Task/ "Godot_Build_GDnative_C++_DLL_DEBUG" Tambien hay una versión para release "Godot_Build_GDnative_C++_DLL_RELEASE"
 
@@ -45,4 +45,6 @@ El proyecto pesa 300mb aprox, pero cuando descargas los godot-cpp llega a pesar 
 Para un entorno de desarrollo con C++ es algo correcto, 
 en unreal engine para desarrollar con C++ hay que descargar más de 50gb, asi que 1gb no creo que sea para nada pesado
 
+# informacion oficial sobre compilado de C++ para godot engine
+## https://docs.godotengine.org/es/stable/tutorials/plugins/gdnative/gdnative-cpp-example.html
 
