@@ -28,6 +28,11 @@ sin esas librerias no vas a poder compilar.
 
 El proyecto trae el compilador y godot dll configurados.
 
+Para compilar lo haces siempre con Vscode.
+En vscode necesitas tener instalado Python y C++
+
+El proyecto se encuentra en la carpeta Godot_proyect y ahi esta el archivo "proyect.godot"
+
 El proyecto pesa 300mb aprox, pero cuando descargas los godot-cpp llega a pesar más de 1 gb.
 Para un entorno de desarrollo con C++ es algo correcto, 
 en unreal engine para desarrollar con C++ hay que descargar más de 50gb, asi que 1gb no creo que sea para nada pesado
