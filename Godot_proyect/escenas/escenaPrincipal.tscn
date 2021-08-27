@@ -1,0 +1,107 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://codigos/GDnative_CPP/GDExample.gdns" type="Script" id=1]
+[ext_resource path="res://escenas/caja_para_prueba_instancias.tscn" type="PackedScene" id=2]
+[ext_resource path="res://escenas/Cubo_fisico.tscn" type="PackedScene" id=3]
+[ext_resource path="res://codigos/GDnative_CPP/InstanciarCubos.gdns" type="Script" id=4]
+[ext_resource path="res://typografias/A-Space Black Demo.otf" type="DynamicFontData" id=6]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 200
+font_data = ExtResource( 6 )
+
+[node name="escenaPrincipal" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.728969, 0.374833, -0.572804, 0, 0.836764, 0.547564, 0.684547, -0.399157, 0.609975, -58.5523, 57.5072, 67.09 )
+far = 5000.0
+
+[node name="suelos" type="Spatial" parent="."]
+
+[node name="caja_para_prueba_instancias2" parent="suelos" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.234158, -0.471725, 0.176151 )
+
+[node name="caja_para_prueba_instancias3" parent="suelos" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.234158, -0.471725, -1309.82 )
+
+[node name="caja_para_prueba_instancias4" parent="suelos" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1310.23, -0.471725, -1309.82 )
+
+[node name="caja_para_prueba_instancias5" parent="suelos" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1310.23, -0.471725, -9.82385 )
+
+[node name="iluminacion" type="Spatial" parent="."]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="iluminacion"]
+transform = Transform( -0.696931, 0.473375, -0.538705, -0.30251, 0.487025, 0.819326, 0.650211, 0.733977, -0.196222, 0, 43.4753, 0 )
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="iluminacion"]
+environment = SubResource( 2 )
+
+[node name="InstanciarCubos" type="Spatial" parent="."]
+transform = Transform( 0.624739, 0, -0.780834, 0, 1, 0, 0.780834, 0, 0.624739, 0, 354.977, 0 )
+script = ExtResource( 4 )
+cuboFisico = ExtResource( 3 )
+
+[node name="Cubo_texturizado" parent="InstanciarCubos" instance=ExtResource( 3 )]
+
+[node name="TimerPrueba" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="GDExample" type="Spatial" parent="."]
+script = ExtResource( 1 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FpsText" type="Label" parent="Control" groups=[
+"FpsText",
+]]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0.185547, 1, 1 )
+text = "FPS=0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContadorText" type="Label" parent="Control" groups=[
+"ContadorText",
+]]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -4.48993
+margin_top = -317.553
+margin_right = -4.48993
+margin_bottom = -0.553345
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="timeout" from="TimerPrueba" to="InstanciarCubos" method="_on_TimerPrueba_timeout"]

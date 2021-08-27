@@ -1,9 +1,7 @@
-#ifndef __INSTANCIAR_H__
-#define __INSTANCIAR_H__
-
-#include "instanciarCubos.h"
-#include <SceneTree.hpp>
+#include "InstanciarCubos.h"
+#include "SceneTree.hpp"
 #include "RigidBody.hpp"
+#include "Engine.hpp"
 
 using namespace godot;//sino uso esto no funciona
 
@@ -19,53 +17,78 @@ InstanciarCubos::~InstanciarCubos()
 
 void InstanciarCubos::_init() 
 {
-    get_node<Timer>("TimerInstanciar");
-    timerAwait = Timer()._new();//creo el timer desde el inicio
-    get_node<Node>("root");
-    add_child(timerAwait);//agrego el timer await dinamicamente
 }
 
-void InstanciarCubos::_process(float delta) 
+void InstanciarCubos::_ready() 
 {
-    
+    Godot::print("inicio el juego");
+    FpsText = (godot::Label*)get_tree()->get_nodes_in_group("FpsText")[0];
+    ContadorText = (godot::Label*)get_tree()->get_nodes_in_group("ContadorText")[0];
 }
 
-void InstanciarCubos::_on_TimerInstanciar_timeout() 
+void InstanciarCubos::_on_TimerPrueba_timeout() 
 {
-    Godot::print("instancio cubo");
-    
+    contador ++;
+    ContadorText->set_text( String::num_int64(contador) );
+
     Node *cuboInstanciado = cuboFisico->instance();
     if(cuboInstanciado == nullptr) return;//Siempre verifico los punteros para no romper el programa
     add_child(cuboInstanciado);
-    Await(3,"ContinuarFlujo");
-    
-    // godot::Object::cast_to<godot::RigidBody>(cuboInstanciado)->set_can_sleep(true);
-    // cast_to<RigidBody>(cuboInstanciado)->set_can_sleep(true);
 }
 
 
-void InstanciarCubos::ContinuarFlujo()
+void InstanciarCubos::_process(const double p_delta) 
 {
-    Godot::print("pasaron 3 segundos");
+    ManejarFpsEnLabel();
 }
 
-void InstanciarCubos::Await(float timeAwait, String nameFunction) 
+void InstanciarCubos::ManejarFpsEnLabel() 
 {
-    timerAwait->set_wait_time(timeAwait);
-    timerAwait->connect(timeAwait, this, nameFunction);
-    timerAwait->set_one_shot(true);
-    timerAwait->start();
+    if(FpsText == nullptr) return;
+    FpsText->set_text("FPS= " + String::num_real( Engine::get_singleton()->get_frames_per_second() ) );
+    Godot::print( String::num_real( Engine::get_singleton()->get_frames_per_second() ) );
+    if(Engine::get_singleton()->get_frames_per_second() > (real_t)50)
+    {
+        FpsText->set("custom_colors/font_color",godot::Color(0,0,1 ) );
+        
+    } 
+
+    if(Engine::get_singleton()->get_frames_per_second() <= (real_t)50)
+    {
+        FpsText->set("custom_colors/font_color",godot::Color(0.011763, 0.860352, 0) );
+       
+    }
+    if(Engine::get_singleton()->get_frames_per_second() < (real_t)40)
+    {
+        FpsText->set("custom_colors/font_color",godot::Color(0.974609, 1, 0) );
+        
+    }
+    if(Engine::get_singleton()->get_frames_per_second() < (real_t)30)
+    {
+        FpsText->set("custom_colors/font_color",godot::Color(0.96582, 0.288614, 0) );
+        
+    }
+    if(Engine::get_singleton()->get_frames_per_second() < (real_t)20)
+    {
+        FpsText->set("custom_colors/font_color",godot::Color(0.96582, 0, 0.345205) );
+        
+    }
+    if(Engine::get_singleton()->get_frames_per_second() < (real_t)10)
+    {
+        FpsText->set("custom_colors/font_color",godot::Color(1, 0, 0) );
+         
+    }
 }
+
+
 
 void InstanciarCubos::_register_methods() 
 {
-    register_method("Instanciar", &InstanciarCubos::_process);
-    register_method("_on_TimerInstanciar_timeout", &InstanciarCubos::_on_TimerInstanciar_timeout);
-    register_method("Await", &InstanciarCubos::Await);
-    register_method("ContinuarFlujo", &InstanciarCubos::ContinuarFlujo);
-    // register_property("cuboFisico",InstanciarCubos::cuboFisico,PackedScene);
+    godot::register_method("_ready", &InstanciarCubos::_ready);
+    godot::register_method("_process",&InstanciarCubos::_process);
+    godot::register_method("_on_TimerPrueba_timeout", &InstanciarCubos::_on_TimerPrueba_timeout);
+    godot::register_method("Instanciar", &InstanciarCubos::_process);
+    godot::register_property("contador", &InstanciarCubos::contador, (int)1);
     godot::register_property("cuboFisico", &InstanciarCubos::cuboFisico, (Ref<PackedScene>)nullptr);//hace que se vea el packet scene en el editor
+    godot::register_method("ManejarFpsEnLabel",&InstanciarCubos::ManejarFpsEnLabel);
 }
-
-
-#endif // __INSTANCIAR_H__

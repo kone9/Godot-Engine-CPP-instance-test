@@ -1,11 +1,12 @@
-#ifndef GDEXAMPLE_H
-#define GDEXAMPLE_H
+#ifndef INSTANCIARCUBOS_H
+#define INSTANCIARCUBOS_H
 
+#include <Godot.hpp>
 #include <Spatial.hpp>
 #include <Timer.hpp>
 #include "RandomNumberGenerator.hpp"
 #include "PackedScene.hpp"
-#include <Godot.hpp>
+#include "Label.hpp"
 
 namespace godot {
     class InstanciarCubos : public Spatial 
@@ -20,34 +21,28 @@ namespace godot {
             //metodo destructor
             ~InstanciarCubos();
             
-            void _init(); // our initializer called by Godot
+            // our initializer called by Godot
+            void _init();
+
+            void _ready();
 
             //funcion process se ejectua 60 veces por segundo
-            void _process(float delta);
-
-        private:
-            Ref<RandomNumberGenerator> _random;//asi hago la referencia a la clase, exactamente igual que en unreal engine cuando necesitas acceder a objetos que no estan en la escena
-            // ResourceLoader* reLo = ResourceLoader::get_singleton();
-            // Ref<PackedScene> res = reLo->load(path);
-            Ref<PackedScene> cuboFisico;//asi hago un packetScene tambien uso una referencia a una clase, tengo que identificar cuando se usan referencias a clase y cuando son punteros
-
-            //timer para ser usado como delay en el código
-            Timer* timerAwait;
-            //espera un tiempo y ejecuta la función que tiene ese nombre
-            void Await(float timeAwait, String nameFunction);
-            //funcion para ser ejecutada luego de un tiempo
-            void ContinuarFlujo();
-
-            void luegoDeInstanciar();
+            void _process(const double p_delta);
         
         private:
-            float time_passed;
-            //puntero al timer de la escena
-            Timer* NuevoTimer;
+            godot::Ref<godot::PackedScene> cuboFisico;//asi hago un packetScene tambien uso una referencia a una clase, tengo que identificar cuando se usan referencias a clase y cuando son punteros
+            
+            int contador = 0;//un contador que se ve en el editor
 
-        public:
+            godot::Label *FpsText;
+            godot::Label *ContadorText;
+
+
+        private:
             //referencia a la señal TIMEOUT
-            void _on_TimerInstanciar_timeout();
+            void  _on_TimerPrueba_timeout();
+
+            void ManejarFpsEnLabel();
     };
 
 }
